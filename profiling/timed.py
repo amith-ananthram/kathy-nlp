@@ -49,13 +49,16 @@ class Timer:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.clock_end()
 
-    def log(self):
+    def log(self, logger=None):
         output_lines = []
         for key in sorted(self.mins.keys() | self.maxes.keys() | self.averages.keys() | self.counts.keys()):
             output_lines.append("%s: min=%0.3fms, max=%0.3fms, avg=%0.3fms, count=%s" % (
                 key, self.mins[key], self.maxes[key], self.averages[key], self.counts[key]
             ))
 
-        self.logger('PROFILER STATS')
+        if not logger:
+            logger = self.logger
+
+        logger('PROFILER STATS')
         for output_line in output_lines:
-            self.logger(output_line)
+            logger(output_line)
