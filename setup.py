@@ -5,7 +5,7 @@ setup(
     url='https://github.com/amith-ananthram/kathy-nlp',
     author='Kathy McKeown\'s NLP Lab',
     author_email='amith@cs.columbia.edu',
-    packages=['logs', 'monitor', 'profile', 'report'],
+    packages=['klogging', 'kmonitoring', 'kprofiling', 'kreporting'],
     install_requires=['python-dateutil'],
     version='0.1',
     license='MIT',
