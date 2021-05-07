@@ -9,7 +9,7 @@ from dateutil.relativedelta import relativedelta
 ATTRS = ['years', 'months', 'days', 'hours', 'minutes', 'seconds']
 
 def elapsed_time(t1, t2):
-	delta = relativedelta(t1, t2)
+	delta = relativedelta(t2, t1)
 	return ', '.join(
 		['%d %s' % (getattr(delta, attr), attr if getattr(delta, attr) > 1 else attr[:-1]) 
 			for attr in ATTRS if getattr(delta, attr)]
